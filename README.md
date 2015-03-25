@@ -1,2 +1,2 @@
 # baus
-test
+c'est un site d'annonce
