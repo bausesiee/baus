@@ -1,6 +1,12 @@
 <?php
 
 include('./fonctions/fonction_bdd.php'); 
+$competence= $_POST['competence'];
+$dernier_diplome= $_POST['dernier_diplome'];
+$annees_dexperience= $_POST['annees_dexperience'];
+$langue= $_POST['langue'];
+$loisir= $_POST['loisir'];
+
 
 $uploaddir = '../baus/telechargement/';
 $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
@@ -18,5 +24,8 @@ echo 'Voici quelques informations de debogage :';
 print_r($_FILES);
 
 echo '</pre>';
-$result=execute("insert into cv(id_demandeur)values ('2')");
+$result=executer("insert into cv(competence,dernier_diplome,annee_d_experience,langue,loisir,id_demandeur)values ('".$competence."','".$dernier_diplome."','".$annees_dexperience."','".$langue."','".$loisir."','1')");
+/*$result=execute("select * from cv");*/
+//affiche($result);
+
 ?>

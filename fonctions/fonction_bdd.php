@@ -1,30 +1,40 @@
 <?php
-function execute($sql)
+function executer($sql)
 {
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "baus";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-$result = $conn->query($sql);
-
-/*if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    try
+    {
+        // On se connecte à MySQL
+        $bdd = new PDO('mysql:host=localhost;dbname=baus;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
-} else {
-    echo "0 results";
-}*/
-$conn->close();
-return $result;
+    catch(Exception $e)
+    {
+        // En cas d'erreur, on affiche un message et on arrête tout
+            die('Erreur : '.$e->getMessage());
+    }
 
+    // Si tout va bien, on peut continuer
+
+    // On récupère tout le contenu de la table jeux_video
+    $reponse = $bdd->query($sql);
+    return $reponse;
+
+}
+
+
+
+function affiche($result)
+{
+    if($result!='0')// s'il y a un retour on affiche sinon rien
+    {
+    	if ($result->num_rows > 0) {
+        // output data of each row
+        	while($row = $result->fetch_assoc()) {
+            	echo "idCV: " . $row["idCv"]. "<br>";
+        	}
+    	} 
+    	else {
+        	echo "0 results";
+    	}
+    }
 }
 ?>
