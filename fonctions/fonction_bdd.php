@@ -14,7 +14,7 @@ function executer($sql)
 
     // Si tout va bien, on peut continuer
 
-    // On récupère tout le contenu de la table jeux_video
+    // On récupère tout le contenu de la table 
     $reponse = $bdd->query($sql);
     return $reponse;
 
