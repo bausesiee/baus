@@ -56,7 +56,7 @@
 			<?php
 			}
 			else{
-			echo "Bienvenue";
+			?> <div id="corps"><h1>Bienvenue</h1></div><?php
 
 			}
 

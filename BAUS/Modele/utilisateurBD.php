@@ -56,6 +56,38 @@
 				return $User;
 				}*/
 				
+				function read_annonces(){	
+				
+					$req="SELECT a.id_annonce,a.titre_annonce FROM user as u, annonce as a, lienannonce_user as l WHERE l.Annonce_id_annonce=a.id_annonce AND l.User_id_user=u.id_user AND u.id_user='".$_SESSION['idu']."'";
+					
+					require("infosSQL.php");
+					$res=mysql_query($req);
+					 
+					
+					while($E = mysql_fetch_assoc($res)){
+						$Annonces[]=array($E['id_annonce'],$E['titre_annonce']);
+						
+					}
+					return $Annonces;
+				}
+				
+				function read_annonce($id){	
+				
+					$req="SELECT a.id_annonce,a.titre_annonce,a.descriptif_annonce,a.date_de_creation,a.duree_annonce,a.date_debut,a.date_d_expiration,a.genre_de_contrat,a.niveau_d_etude_requis,a.remuneration,a.competence_annonce FROM user as u, annonce as a, lienannonce_user as l WHERE l.Annonce_id_annonce=a.id_annonce AND a.id_annonce='".$id."' AND l.User_id_user=u.id_user AND u.id_user='".$_SESSION['idu']."'";	
+					
+					require("infosSQL.php");
+					$res=mysql_query($req) or die ("erreur de requete");
+					 
+					
+					$E = mysql_fetch_assoc($res);
+						
+						$Annonce[]=array($E['id_annonce'],$E['titre_annonce'],$E['descriptif_annonce'],$E['date_de_creation'],$E['duree_annonce'],$E['date_debut'],$E['date_d_expiration'],$E['genre_de_contrat'],$E['niveau_d_etude_requis'],$E['remuneration'],$E['competence_annonce']);
+					
+						//print_r($Annonce);
+					return $Annonce;
+				}
+				
+				
 				function possedeCV(){
 					//$req="SELECT cv.id_demandeur FROM user as u, cv WHERE cv.id_demandeur=u.id_user AND u.id_user='".$_SESSION['idu']."'";
 					$req="SELECT l.User_id_user FROM user as u, liencv_user as l WHERE l.User_id_user=u.id_user AND u.id_user='".$_SESSION['idu']."'";

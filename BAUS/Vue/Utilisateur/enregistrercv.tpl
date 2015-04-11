@@ -1,4 +1,6 @@
-
+<div id="corps">
+	   <h3> Ajouter votre CV </h3>
+	   </div>
 <div id="corpsajoutcv">
 
 	<form enctype="multipart/form-data" action="index.php?ctrl=utilisateur&action=ajoutcv" method="post">
@@ -23,13 +25,14 @@
 	<td><label for="loisir">Loisir</label></td>
 	<td><input type="text" name="loisir" id="loisir" placeholder="Ex : Cinema" size="50" /></td>
 	</tr>
+	<!--
 	<tr>
-	<!-- MAX_FILE_SIZE doit précéder le champ input de type file -->
+
 	<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-	<!-- Le nom de l'élément input détermine le nom dans le tableau $_FILES -->
 	<td>Envoyez ce fichier :</td>
 	<td><input name="userfile" type="file" /></td>
 	</tr>
+	-->
 	</table>
 	<input type="submit" value="Enregister votre CV" />
 	</form>

@@ -159,8 +159,9 @@
 				
 				require("./Modele/utilisateurBD.php");
 				$test=enregistrerCVbd();
-				require("./vue/header.tpl");
-				require("./vue/utilisateur/gestion.tpl");
+				header ('location: index.php');
+				//require("./vue/header.tpl");
+				//require("./vue/utilisateur/gestion.tpl");
 			}
 			
 			function pageajoutAnnonce(){
@@ -174,8 +175,52 @@
 				
 				require("./Modele/utilisateurBD.php");
 				$test=enregistrerAnnoncebd();
+				header ('location: index.php');  
+				//require("./vue/header.tpl");
+				//require("./vue/utilisateur/gestion.tpl");
+			}
+			
+			function pagelisteAnnonces(){
+				require("./Modele/utilisateurBD.php");
+				$T=read_annonces();
 				require("./vue/header.tpl");
-				require("./vue/utilisateur/gestion.tpl");
+				require("./vue/utilisateur/listeAnnonces.tpl");
+			 
+				
+			}
+			
+			function Annonce(){
+				$id=$_GET['id'];
+				/*
+				require("./Modele/spectacleBD.php");
+				
+				
+				if (count($_POST)!=0 && isset($_POST['note']) && isset($_POST['commentaire'])){
+					ajoutavis($id);
+				}
+				if (count($_POST)!=0 && isset($_POST['id_r'])){
+					$idr=$_POST['id_r'];
+					if(!dejareserve($id,$idr)){
+						$reserve="place reservée";
+					ajouthistorique();
+					}
+					else{
+						$reserve="déjà reservée";
+					}
+				}
+				*/
+				
+				require("./Modele/utilisateurBD.php");
+				$T=read_annonce($id);
+				
+				require("./vue/header.tpl");
+			   require("./vue/utilisateur/Annonce.tpl");
+			  
+   
+			}
+			
+			function pageafficheCV(){
+			
 			}
 			
 			
