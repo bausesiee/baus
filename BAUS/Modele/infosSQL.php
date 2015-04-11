@@ -9,7 +9,7 @@ $base = $nom;
 $nom = "root";
 $pass = "";
 $host = "localhost"; //localhost chez moi
-$base = "baus";
+$base = "baus1";
 
 $link = mysql_connect($host, $nom, $pass) or die ("erreur de connexion :" . mysql_error());
 mysql_select_db($base) or die ("erreur d\'acces a la base :" . $base);

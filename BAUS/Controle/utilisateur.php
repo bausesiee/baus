@@ -163,6 +163,22 @@
 				require("./vue/utilisateur/gestion.tpl");
 			}
 			
+			function pageajoutAnnonce(){
+				
+				
+				require("./vue/header.tpl");
+				require("./vue/utilisateur/enregistrerannonce.tpl");
+			}
+			
+			function ajoutAnnonce(){
+				
+				require("./Modele/utilisateurBD.php");
+				$test=enregistrerAnnoncebd();
+				require("./vue/header.tpl");
+				require("./vue/utilisateur/gestion.tpl");
+			}
+			
+			
 			function deconnexion(){
 				session_start();
 					session_destroy ();  

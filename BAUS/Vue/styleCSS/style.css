@@ -161,6 +161,7 @@ ul, ul ul {
 	font-size: 0.8125em;
     float: left;
     margin-left:5em;
+	z-index: 10;
 }
 
 .menu {
