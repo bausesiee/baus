@@ -1,0 +1,5 @@
+pour changer les info phpmyadmin, modifier dans modele infosSQL.php
+
+compte pour tester le site
+login : benali
+pass : norage
