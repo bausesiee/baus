@@ -12,7 +12,8 @@ $telephone= $_POST['telephone'];
 $result=executer("insert into user(nom,prenom,date_naissance,email,adresse)values ('".$nom."','".$prenom."','".$date_de_naissance."','".$email."','".$adresse."','".$telephone"')");
 if ($result)
 	echo "enregistrement reussi";
-/*$result=execute("select * from cv");*/
-//affiche($result);
+else 
+	echo "Probleme de connexion à la base de donnee veuillez ressayer plus tard "
+
 
 ?>

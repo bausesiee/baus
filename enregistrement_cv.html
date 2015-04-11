@@ -21,11 +21,15 @@
 		<td><label for="loisir">Loisir</label></td>
 		<td><input type="text" name="loisir" id="loisir" placeholder="Ex : Cinema" size="50"  /></td>
 	</tr>
+		<tr>
+		<td><label for="cle">Mots cle</label></td>
+		<td><input type="text" name="cle" id="cle" placeholder="Ex : Java ,ingenieur , opticien" size="50"  /></td>
+	</tr>
 	<tr>
 		<!-- MAX_FILE_SIZE doit précéder le champ input de type file -->
-		<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+		<input type="hidden" name="MAX_FILE_SIZE" value="999999999999" />
 		<!-- Le nom de l'élément input détermine le nom dans le tableau $_FILES -->
-		<td>Envoyez ce fichier :</td> 
+		<td>Envoyez ce fichier (Seulement en .pdf) :</td> 
 		<td><input name="userfile" type="file" /></td>
 	</tr>
 	</table>
