@@ -7,6 +7,7 @@ $dernier_diplome= $_POST['dernier_diplome'];
 $annees_dexperience= $_POST['annees_dexperience'];
 $langue= $_POST['langue'];
 $loisir= $_POST['loisir'];
+$competence_requise= $_POST['competence_requise'];
 
 
 $uploaddir = '../baus/telechargement/';
@@ -25,7 +26,7 @@ echo 'Voici quelques informations de debogage :';
 print_r($_FILES);
 
 echo '</pre>';
-$result=executer("insert into cv(competence,dernier_diplome,annee_d_experience,langue,loisir,id_demandeur)values ('".$competence."','".$dernier_diplome."','".$annees_dexperience."','".$langue."','".$loisir."','1')");// #1
+$result=executer("insert into cv(competence,dernier_diplome,annee_d_experience,langue,loisir,competence_requise,id_demandeur)values ('".$competence."','".$dernier_diplome."','".$annees_dexperience."','".$langue."','".$loisir."','".$competence_requise."'','"1"')");// #1
 /*$result=execute("select * from cv");*/
 //affiche($result);
 

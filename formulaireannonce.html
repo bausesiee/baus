@@ -15,17 +15,21 @@
 
         <nav class="navlogin">
             <ul class="ullogin">
-                <li class="lilogin"><a href="abusconsulting.html">abusconsulting</a></li>
+                <li class="lilogin"><a href="bausconsulting.html">Bausconsulting</a></li>
             </ul>
         </nav>
 
         <section>
-            <form action="/baus/formulaire_annonce.php" method="post">
+            <form action="/baus/enregistrement_annonce.php" method="post">
                 <table class="table_annonce">
                     <tr>
                         <td><label class="annonce" for="titre_annonce">Titre de l'annonce</label></td>
                         <td><input class="input_annonce" type="text" name="titre_annonce" id="titre_annonce" placeholder="Application Web" size="50"/></td>
                     </tr>
+
+                    <!-- <tr>
+                    <td><label class="date_de_creation" for="date_de_creation" 
+                    </tr>-->
 
                     <tr>
                         <td><label class="annonce" for="descriptif_annonce">Description</label></td>
@@ -35,10 +39,10 @@
                       <tr>
                         <td><label class="annonce" for="duree_annonce">Durée</label></td>
                         <td><select name="duree">
-                            <option value="duree">>= 1 mois</option>
+                            <option value="duree"><= 1 mois</option>
                             <option value="duree">2 mois</option>
                             <option value="duree">3 mois</option>
-                            <option value="duree">< 3 mois</option>
+                            <option value="duree">> 3 mois</option>
                         </select>
                     </tr>
 
