@@ -1,9 +1,4 @@
 <?php
-  //connection au serveur
-  //$cnx = mysql_connect( "localhost", "root", "" ) ;
- 
-  //sélection de la base de données:
-  //$db  = mysql_select_db( "baus" ) ;
 
 include('./fonctions/fonction_bdd.php'); 
 $nom= $_POST['nom'];
@@ -12,21 +7,16 @@ $date_de_naissance= $_POST['date_de_naissance'];
 $email= $_POST['email'];
 $adresse= $_POST['adresse'];
 $telephone= $_POST['telephone'];
+$id_user= $_POST["id_user"] ;
  
-  //récupération de l'identifiant de la personne:
-  $id         = $_POST["id_user"] ;
- 
-  //création de la requête SQL:
-  $sql = "UPDATE user
-          SET    nom = '$nom', 
-	               prenom  = '$prenom',
-		             date_de_naissance = '$date_de_naissance',
-		             email = '$email',
-                 telephone = '$telephone'
-          WHERE id = '$id_user " ;
- 
-  //exécution de la requête SQL:
-  $requete = mysql_query($sql) or die( mysql_error() ) ;
+  //création et exécuter de la requête SQL:
+$requete=executer("UPDATE user
+                   SET    nom = '$nom', 
+	                        prenom  = '$prenom',
+		                      date_de_naissance = '$date_de_naissance',
+		                      email = '$email',
+                          telephone = '$telephone'
+                   WHERE  id_user = '$id_user'";)
  
  
   //affichage des résultats, pour savoir si la modification a marchée:

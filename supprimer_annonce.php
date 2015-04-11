@@ -3,11 +3,11 @@
  include('./fonctions/fonction_bdd.php');
   //récupération de la variable d'URL,
   //qui va nous permettre de savoir quel enregistrement modifier
-  $id_CV  = $_GET["id_CV"] ;
+  $id  = $_GET["id_annonce"] ;
  
   //requête SQL:
-$requete=execute("SELECT *
-            FROM CV
-	    WHERE id_CV = '$id_CV'";)
+$requete=execute("DELETE *
+            FROM annonce
+	    WHERE id_annonce = '$id'";)
 
   ?>

@@ -6,7 +6,7 @@
   $id_CV  = $_GET["id_CV"] ;
  
   //requête SQL:
-$requete=execute("SELECT *
+$requete=execute("DELETE *
             FROM CV
 	    WHERE id_CV = '$id_CV'";)
 
