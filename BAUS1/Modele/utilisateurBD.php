@@ -99,7 +99,7 @@
 				
 				function afficherCV(){
 					
-					$req="SELECT c.idCv, c.competence, c.dernier_diplome, c.annee_d_experience, c.langue, c.loisir, c.cle FROM user as u, cv as c, liencv_user as l WHERE l.CV_idCv=c.idCv AND l.User_id_user=u.id_user AND u.id_user='".$_SESSION['idu']."'";	
+					$req="SELECT u.nom, u.prenom, u.date_naissance, u.email, u.adresse, u.telephone, c.idCv, c.competence, c.dernier_diplome, c.annee_d_experience, c.langue, c.loisir FROM user as u, cv as c, liencv_user as l WHERE l.CV_idCv=c.idCv AND l.User_id_user=u.id_user AND u.id_user='".$_SESSION['idu']."'";	
 					
 					require("infosSQL.php");
 					$res=$mysqli->query($req);
@@ -108,7 +108,7 @@
 					
 					$E = $res->fetch_assoc();
 						
-						$Annonce[]=array($E['idCv'],$E['competence'],$E['dernier_diplome'],$E['annee_d_experience'],$E['langue'],$E['loisir'],$E['cle']);
+						$Annonce[]=array($E['nom'], $E['prenom'], $E['date_naissance'], $E['email'], $E['adresse'], $E['telephone'],$E['idCv'],$E['competence'],$E['dernier_diplome'],$E['annee_d_experience'],$E['langue'],$E['loisir']);
 					
 						
 					return $Annonce;
