@@ -128,8 +128,12 @@
    
 			}
 			
-			function pageafficheCV(){
-			
+			function pageCV(){
+				require("./Modele/utilisateurBD.php");
+				$T=afficherCV();
+				
+				require("./vue/header.tpl");
+			   require("./vue/utilisateur/CV.tpl");
 			}
 			
 			

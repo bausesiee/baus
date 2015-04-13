@@ -17,10 +17,9 @@
 
 				
 				function ajoutuser(){
-				$req="INSERT INTO user(id_user,nom,prenom,date_naissance,email,adresse,telephone,motdepasse) VALUES('',  '".$_POST['nom']."',  '".$_POST['prenom']."', '".$_POST['date_naissance']."', '".$_POST['email']."', '".$_POST['adresse']."', '".$_POST['telephone']."', '".$_POST['pass']."')";
+				$req="INSERT INTO user(id_user,nom,prenom,date_naissance,email,adresse,telephone,motdepasse) VALUES('',  '".$_POST['nom']."',  '".$_POST['prenom']."', '', '".$_POST['email']."', '', '', '".$_POST['pass']."')";
 				require("infosSQL.php");
 				$res=$mysqli->query($req);
-				print_r($res);
 				
 				}
 				
@@ -98,6 +97,23 @@
 					
 				}
 				
+				function afficherCV(){
+					
+					$req="SELECT c.idCv, c.competence, c.dernier_diplome, c.annee_d_experience, c.langue, c.loisir, c.cle FROM user as u, cv as c, liencv_user as l WHERE l.CV_idCv=c.idCv AND l.User_id_user=u.id_user AND u.id_user='".$_SESSION['idu']."'";	
+					
+					require("infosSQL.php");
+					$res=$mysqli->query($req);
+				
+					 
+					
+					$E = $res->fetch_assoc();
+						
+						$Annonce[]=array($E['idCv'],$E['competence'],$E['dernier_diplome'],$E['annee_d_experience'],$E['langue'],$E['loisir'],$E['cle']);
+					
+						
+					return $Annonce;
+				}
+				
 				function enregistrerAnnoncebd(){
 					$titre_annonce= $_POST['titre_annonce'];
 					$descriptif_annonce= $_POST['descriptif_annonce'];
@@ -112,7 +128,7 @@
 					
 					 
 					$UID=$mysqli->insert_id;
-					$req="INSERT INTO lienannonce_user(idLienAnnonce_User,User_id_user,Annonce_id_annonce) VALUES('', '".$_SESSION['idu']."','".$UID."')";
+					$req="INSERT INTO lienannonce_user(idLienAnnonce_User,User_id_user,Annonce_id_annonce) VALUES('', '".$_SESSION['idu']."', $UID)";
 					require("infosSQL.php");
 					$res=$mysqli->query($req);
 					
